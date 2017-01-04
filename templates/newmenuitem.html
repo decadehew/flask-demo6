@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block content %}
+  <h1>New Menu Item</h1>
+  <div>
+    <form  action="{{url_for('newMenuItem', restaurant_id=restaurant_id)}}" method="post">
+      {{ form.csrf_token }}
+      <p>{{form.name.label}}</p>
+        {{form.name }}
+      <p>
+        {{form.description.label}}
+      </p>
+        {{form.description}}
+      <p>
+        {{form.price.label}}
+        {{form.price}}
+      </p>
+
+
+      <input type="submit" value="Create">
+    </form>
+    <a href="{{url_for('restaurantMenu', restaurant_id=restaurant_id)}}">Cancel</a>
+
+  </div>
+{% endblock %}
